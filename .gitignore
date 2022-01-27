@@ -133,3 +133,6 @@ dmypy.json
 temp/
 examples/
 kivy/RESOURCES_KIVY/
+kivy/images/
+kivy/fonts/
+
