@@ -40,7 +40,7 @@ class AnalogReader(Module):
         adds the samples to both the io and ui queues for logging and display. The default timeout is 10 seconds.
         """
         with nidaqmx.Task() as self.reader_task:
-            # Create a temp dict to pass multiple arguments more easily
+            # Create a kivy dict to pass multiple arguments more easily
             chan_args = {
                 "min_val": self.min_voltage,
                 "max_val": self.max_voltage,

@@ -132,3 +132,4 @@ dmypy.json
 # Support directories
 temp/
 examples/
+kivy/RESOURCES_KIVY/
