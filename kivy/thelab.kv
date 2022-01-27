@@ -8,13 +8,41 @@ WidgetsExample:
         size_hint: None, 1
         width: "100dp"
     Button:
-        text: "Click here"
+        text: "Count"
         on_press: root.on_button_click()
+        disabled: not root.toggle_state
     Label:
         text: root.my_text
         font_name: "fonts/Lcd.ttf"
         font_size: "80dp"
         color: 1, .5, 1, 1
+    Switch:
+        id: my_switch
+        value: True
+        on_active: root.on_switch_active(self)
+        size_hint: None, 1
+        width: "100dp"
+    Slider:
+        id: my_slider
+        min: 0
+        max: 100
+        value: 50 # default value
+        # on_value: root.on_slider_value(self)
+        orientation: "vertical"
+        disabled: not my_switch.active
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            # text: root.slider_value_txt
+            text: str(int(my_slider.value))
+            font_name: "fonts/Lcd.ttf"
+            font_size: "80dp"
+            color: 1, 0, 0, 1
+        ProgressBar:
+            max: 100
+            value: my_slider.value
+
+
 
 <PageLayoutExample@PageLayout>:
     MainWidget:

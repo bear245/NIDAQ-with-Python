@@ -1,6 +1,6 @@
 from kivy.app import App
 from kivy.metrics import dp
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, BooleanProperty
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.stacklayout import StackLayout
@@ -10,9 +10,10 @@ from kivy.uix.button import Button
 
 
 class WidgetsExample(GridLayout):
-    my_text = StringProperty("Hello!")
+    my_text = StringProperty("0")
+    # slider_value_txt = StringProperty("50")
     count = 0
-    toggle_state = 0
+    toggle_state = BooleanProperty(False)
     def on_button_click(self):
         print("Button clicked")
         if self.toggle_state:
@@ -24,11 +25,18 @@ class WidgetsExample(GridLayout):
         if widget.state =="normal":
             # OFF case
             widget.text = "OFF"
-            self.toggle_state = 0
+            self.toggle_state = False
         else:
             # ON case
             widget.text = "ON"
-            self.toggle_state = 1
+            self.toggle_state = True
+
+    def on_switch_active(self, widget):
+        print("Switch: " + str(widget.active))
+
+    # def on_slider_value(self, widget):
+    #     self.slider_value_txt = str(int(widget.value))
+    #     print("Slider: " + str(int(widget.value)))
 
 
 class BoxLayoutExample(BoxLayout):
