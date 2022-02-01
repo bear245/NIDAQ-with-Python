@@ -1,32 +1,44 @@
-BoxLayoutH:
+MainWidget:
 
-<BoxLayoutH>:
+<MainWidget>:
     orientation: "horizontal"
-    BoxLayoutV:
+    BoxLayoutV1:
         size_hint: .5, 1
+    BoxLayoutV2:
 
-    Button:
-        text: "B"
-        # size_hint: None, None
-        # width: "100dp"
-        # height: "80dp"
-        # pos_hint: {"center_x": .5}
 
-<BoxLayoutV>:
+<BoxLayoutV1>:
     orientation: "vertical"
     spacing: "10dp"
     Button:
         text: "Start Task"
+        on_press: root.on_start_task_click()
     Button:
         text: "Stop Task"
+        on_press: root.on_stop_task_click()
     Button:
         text: "Digital Output"
+        on_press: root.on_do_click()
     Button:
         text: "Analog Input"
+        on_press: root.on_ai_click()
     Button:
         text: "Digital Input"
+        on_press: root.on_di_click()
     Button:
         text: "Save Log"
+        on_press: root.on_savelog_click()
     Button:
         text: "Quit"
+        on_press: root.on_quit_click()
 
+
+<BoxLayoutV2>:
+    orientation: "vertical"
+    Button:
+        text: "B"
+    TextInput:
+        id: my_text_input
+        size_hint: 1, .05
+        text: "hello world"
+        multiline: False
